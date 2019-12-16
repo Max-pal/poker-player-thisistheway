@@ -11,7 +11,7 @@ class Player:
         me = int(game_state["in_action"])
         card1 = game_state["players"][me]["hole_cards"][0]
         card2 = game_state["players"][me]["hole_cards"][1]
-        my_cards_rank = [card1, card2]
+        my_cards_rank = [card1["rank"], card2["rank"]]
         current_buy_in = int(game_state["current_buy_in"])
         players = game_state["players"]
         mybet = int(players[me]["bet"])
