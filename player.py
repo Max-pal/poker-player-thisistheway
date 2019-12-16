@@ -14,7 +14,7 @@ class Player:
         my_cards_rank = [card1, card2]
         current_buy_in = int(game_state["current_buy_in"])
         players = game_state["players"]
-        mybet = int(players["in_action"]["bet"])
+        mybet = int(players[me]["bet"])
         minimum_raise = int(game_state["minimum_raise"])
         call = current_buy_in-mybet
         community_cards = game_state["community_cards"]
