@@ -5,9 +5,8 @@ class Player:
     def betRequest(self, game_state):
         small_pairs = [["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"], ["6", "6"], ["7", "7"]]
         medium_pairs = [["8", "8"], ["9", "9"], ["10", "10"], ["J", "J"]]
-        president_pairs = [["K", "K"], ["Q", "Q"], ["A", "A"]]
-        president_cards = ["K","Q","A","J"]
-
+        president_pairs = [["K", "K"], ["Q", "Q"], ["A", "A"],["J","J"],["10","10"]]
+        president_cards = ["K","Q","A","J","10"]
 
         me = int(game_state["in_action"])
         card1 = game_state["players"][me]["hole_cards"][0]
@@ -35,30 +34,3 @@ class Player:
 
     def showdown(self, game_state):
         pass
-
-
-    def count_active_players(self,players):
-        counter = 0
-        for player in players:
-            if(player["status"] == "out"):
-                counter += 1
-        return len(players)-counter
-
-    def is_it_me_the_richest_boy(self,players,myindex):
-        currect_max = 0
-        player_index = "0"
-        for player in players:
-            if int(player["stack"]) > currect_max:
-                currect_max = int(player["stack"])
-                player_index = player["id"]
-        if int(player_index) == int(myindex):
-            return True
-        return False
-
-
-
-    def check_card_rank_in_community_cards(self,card,community_cards):
-        for com_card in community_cards:
-            if com_card["rank"] == card["rank"]:
-                return True
-        return False
