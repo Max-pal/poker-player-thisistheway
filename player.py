@@ -5,7 +5,7 @@ class Player:
     def betRequest(self, game_state):
         me = game_state["in_action"]
         if game_state["players"][me]["hole_cards"]["rank"] ==  game_state["players"][me]["hole_cards"]["rank"]:
-            return int(game_state["current_buy_in"]) + int(game_state["minimum_raise"])
+            return 200
         else:
             return 0
 
