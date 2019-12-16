@@ -1,6 +1,6 @@
 
 class Player:
-    VERSION = "2.0"
+    VERSION = "I HAVE SPOKEN"
 
     def betRequest(self, game_state):
         small_pairs = [["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"], ["6", "6"], ["7", "7"]]
