@@ -22,8 +22,9 @@ class Player:
         raise_minimum = current_buy_in - mybet + minimum_raise
 
         if len(game_state["community_cards"]) == 0:
-            if card1["rank"] in president_cards and card2["rank"] in president_cards:
-                return call
+            if card1["rank"] in president_cards and card2["rank"] in president_cards or my_cards_rank in president_pairs:
+                return 502
+
         #elif card1["rank"] == card2["rank"] or self.check_card_rank_in_community_cards(card1,community_cards) or self.check_card_rank_in_community_cards(card2,community_cards):
         #   return raise_minimum
         #else:
