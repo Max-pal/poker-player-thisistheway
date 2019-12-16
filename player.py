@@ -1,6 +1,6 @@
 
 class Player:
-    VERSION = "1.44"
+    VERSION = "1.69"
 
     def betRequest(self, game_state):
         small_pairs = [["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"], ["6", "6"], ["7", "7"]]
@@ -39,7 +39,7 @@ class Player:
         elif my_cards_rank in small_pairs:
             return current_buy_in - mybet + minimum_raise + int(players[me]["stack"]*0.05)
         elif card1 in president_cards and card2 in president_cards:
-            return call
+            return int(players[me]["stack"])
         else:
             return 0
         # if card1["rank"] == card2["rank"] and len(game_state["community_cards"]) == 0:
