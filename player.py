@@ -3,8 +3,11 @@ class Player:
     VERSION = "1.1"
 
     def betRequest(self, game_state):
-        return 501
-
+        me = game_state["in_action"]
+        if game_state["players"][me]["hole_cards"]["rank"] ==  game_state["players"][me]["hole_cards"]["rank"]:
+            return int(game_state["current_buy_in"]) + int(game_state["minimum_raise"])
+        else:
+            return 0
 
     def showdown(self, game_state):
         pass
