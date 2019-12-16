@@ -29,7 +29,8 @@ class Player:
         #   return raise_minimum
         #else:
         #    return 0
-
+        if self.is_it_me_the_richest_boy(players,players[me]):
+            return int(players[me]["stack"])
         if my_cards_rank in president_pairs:
             return current_buy_in - mybet + minimum_raise + int(players[me]["stack"]*0.29)
         elif my_cards_rank in medium_pairs:
@@ -49,6 +50,20 @@ class Player:
 
     def showdown(self, game_state):
         pass
+
+
+    def is_it_me_the_richest_boy(self,players,myindex):
+        currect_max = 0
+        player_index = "0"
+        for player in players:
+            if int(player["stack"]) > currect_max:
+                currect_max = int(player["stack"])
+                player_index = player["id"]
+        if int(player_index) == int(myindex):
+            return True
+        return False
+
+
 
     def check_card_rank_in_community_cards(self,card,community_cards):
         for com_card in community_cards:
