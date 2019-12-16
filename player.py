@@ -12,7 +12,7 @@ class Player:
         if card1["rank"] == card2["rank"]:
             return 100
         else:
-            return game_state["current_buy_in"]
+            return game_state["current_buy_in"]-game_state["players"][me]["bet"]
 
     def showdown(self, game_state):
         pass
