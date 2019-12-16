@@ -29,8 +29,8 @@ class Player:
         #   return raise_minimum
         #else:
         #    return 0
-        if self.is_it_me_the_richest_boy(players,players[me]):
-            return int(players[me]["stack"])
+        #if self.is_it_me_the_richest_boy(players,players[me]):
+         #   return int(players[me]["stack"])
         if my_cards_rank in president_pairs:
             return current_buy_in - mybet + minimum_raise + int(players[me]["stack"]*0.29)
         elif my_cards_rank in medium_pairs:
