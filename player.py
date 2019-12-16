@@ -22,12 +22,10 @@ class Player:
         raise_minimum = current_buy_in - mybet + minimum_raise
 
 
-        if(self.count_active_players(players) <= 3):
+        if self.count_active_players(players) <= 3:
 
             if self.is_it_me_the_richest_boy(players,me):
                 return int(players[me]["stack"])
-
-
 
             if len(game_state["community_cards"]) == 0:
                 if card1["rank"] in president_cards and card2["rank"] in president_cards or my_cards_rank in president_pairs:
@@ -65,9 +63,9 @@ class Player:
     def count_active_players(self,players):
         counter = 0
         for player in players:
-            if(player["status"] == "active"):
+            if(player["status"] == "out"):
                 counter += 1
-        return counter
+        return len(players)-counter
 
     def is_it_me_the_richest_boy(self,players,myindex):
         currect_max = 0
