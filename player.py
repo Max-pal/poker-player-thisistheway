@@ -1,6 +1,6 @@
 
 class Player:
-    VERSION = "1.69"
+    VERSION = "2.0"
 
     def betRequest(self, game_state):
         small_pairs = [["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"], ["6", "6"], ["7", "7"]]
@@ -21,27 +21,34 @@ class Player:
         community_cards = game_state["community_cards"]
         raise_minimum = current_buy_in - mybet + minimum_raise
 
-        if self.is_it_me_the_richest_boy(players,me):
-            return int(players[me]["stack"])
 
-        
-        if len(game_state["community_cards"]) == 0:
-            if card1["rank"] in president_cards and card2["rank"] in president_cards or my_cards_rank in president_pairs:
-                return 502
+        if(self.count_active_players(players) <= 3):
 
-        #elif card1["rank"] == card2["rank"] or self.check_card_rank_in_community_cards(card1,community_cards) or self.check_card_rank_in_community_cards(card2,community_cards):
-        #   return raise_minimum
-        #else:
-        #    return 0
+            if self.is_it_me_the_richest_boy(players,me):
+                return int(players[me]["stack"])
 
-        if my_cards_rank in president_pairs:
-            return current_buy_in - mybet + minimum_raise + int(players[me]["stack"]*0.29)
-        elif my_cards_rank in medium_pairs:
-            return current_buy_in - mybet + minimum_raise + int(players[me]["stack"]*0.1)
-        elif my_cards_rank in small_pairs:
-            return current_buy_in - mybet + minimum_raise + int(players[me]["stack"]*0.05)
-        elif card1 in president_cards and card2 in president_cards:
-            return int(players[me]["stack"])
+
+
+            if len(game_state["community_cards"]) == 0:
+                if card1["rank"] in president_cards and card2["rank"] in president_cards or my_cards_rank in president_pairs:
+                    return 502
+
+            #elif card1["rank"] == card2["rank"] or self.check_card_rank_in_community_cards(card1,community_cards) or self.check_card_rank_in_community_cards(card2,community_cards):
+            #   return raise_minimum
+            #else:
+            #    return 0
+
+            if my_cards_rank in president_pairs:
+                return current_buy_in - mybet + minimum_raise + int(players[me]["stack"]*0.29)
+            elif my_cards_rank in medium_pairs:
+                return current_buy_in - mybet + minimum_raise + int(players[me]["stack"]*0.1)
+            elif my_cards_rank in small_pairs:
+                return current_buy_in - mybet + minimum_raise + int(players[me]["stack"]*0.05)
+            elif card1 in president_cards and card2 in president_cards:
+                return int(players[me]["stack"])
+            else:
+                return 0
+
         else:
             return 0
         # if card1["rank"] == card2["rank"] and len(game_state["community_cards"]) == 0:
@@ -54,6 +61,13 @@ class Player:
     def showdown(self, game_state):
         pass
 
+
+    def count_active_players(self,players):
+        counter = 0
+        for player in players:
+            if(player["status"] == "active"):
+                counter += 1
+        return counter
 
     def is_it_me_the_richest_boy(self,players,myindex):
         currect_max = 0
