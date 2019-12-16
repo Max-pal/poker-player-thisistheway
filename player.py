@@ -21,6 +21,10 @@ class Player:
         community_cards = game_state["community_cards"]
         raise_minimum = current_buy_in - mybet + minimum_raise
 
+        if self.is_it_me_the_richest_boy(players,me):
+            return int(players[me]["stack"])
+
+        
         if len(game_state["community_cards"]) == 0:
             if card1["rank"] in president_cards and card2["rank"] in president_cards or my_cards_rank in president_pairs:
                 return 502
@@ -30,8 +34,6 @@ class Player:
         #else:
         #    return 0
 
-        if self.is_it_me_the_richest_boy(players,me):
-            return int(players[me]["stack"])
         if my_cards_rank in president_pairs:
             return current_buy_in - mybet + minimum_raise + int(players[me]["stack"]*0.29)
         elif my_cards_rank in medium_pairs:
