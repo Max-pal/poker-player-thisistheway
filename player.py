@@ -8,8 +8,8 @@ class Player:
         card2 = game_state["players"][me]["hole_cards"][1]
         current_buy_in = int(game_state["current_buy_in"])
         players = game_state["players"]
-        mybet = int(players["in_action"]["bet"])
-        minimum_raise = int(game_state["minimum_raise"])
+        mybet = int(players[me]["bet"])
+        minimum_raise = int(game_state["minimunm_raise"])
         call = current_buy_in-mybet
         community_cards = game_state["community_cards"]
         raise_minimum = current_buy_in - mybet + minimum_raise
