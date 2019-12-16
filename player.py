@@ -30,11 +30,11 @@ class Player:
         #    return 0
 
         if my_cards_rank in president_pairs:
-            return current_buy_in - mybet + minimum_raise + 299
+            return current_buy_in - mybet + minimum_raise + int(players[me]["stack"]*0.29)
         elif my_cards_rank in medium_pairs:
-            return current_buy_in - mybet + minimum_raise + 100
+            return current_buy_in - mybet + minimum_raise + int(players[me]["stack"]*0.1)
         elif my_cards_rank in small_pairs:
-            return current_buy_in - mybet + minimum_raise + 50
+            return current_buy_in - mybet + minimum_raise + int(players[me]["stack"]*0.05)
         elif card1 in president_cards and card2 in president_cards:
             return call
         else:
