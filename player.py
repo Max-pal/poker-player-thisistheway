@@ -1,6 +1,6 @@
 
 class Player:
-    VERSION = "1.4"
+    VERSION = "1.44"
 
     def betRequest(self, game_state):
         small_pairs = [["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"], ["6", "6"], ["7", "7"]]
@@ -29,7 +29,7 @@ class Player:
         #   return raise_minimum
         #else:
         #    return 0
-        
+
         if self.is_it_me_the_richest_boy(players,me):
             return int(players[me]["stack"])
         if my_cards_rank in president_pairs:
