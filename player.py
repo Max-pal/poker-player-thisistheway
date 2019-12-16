@@ -14,13 +14,13 @@ class Player:
         community_cards = game_state["community_cards"]
         raise_minimum = current_buy_in - mybet + minimum_raise
 
-
-        if card1["rank"] == card2["rank"] and len(game_state["community_cards"]) == 0:
-            return call
-        elif card1["rank"] == card2["rank"] or self.check_card_rank_in_community_cards(card1,community_cards) or self.check_card_rank_in_community_cards(card2,community_cards):
-            return raise_minimum
-        else:
-            return 0
+        return 100
+        #if card1["rank"] == card2["rank"] and len(game_state["community_cards"]) == 0:
+            #return call
+        #elif card1["rank"] == card2["rank"] or self.check_card_rank_in_community_cards(card1,community_cards) or self.check_card_rank_in_community_cards(card2,community_cards):
+        #   return raise_minimum
+        #else:
+        #    return 0
 
     def showdown(self, game_state):
         pass
