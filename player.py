@@ -22,7 +22,7 @@ class Player:
         raise_minimum = current_buy_in - mybet + minimum_raise
 
 
-        if self.count_active_players(players) <= 2 or my_cards_rank in president_pairs:
+        if self.count_active_players(players) <= 4 or my_cards_rank in president_pairs:
 
             if self.is_it_me_the_richest_boy(players,me):
                 return int(players[me]["stack"])
