@@ -21,11 +21,11 @@ class Player:
         raise_minimum = current_buy_in - mybet + minimum_raise
 
         if my_cards_rank in president_pairs:
-            return 500
+            return current_buy_in - mybet + minimum_raise + 300
         elif my_cards_rank in medium_pairs:
-            return 200
+            return current_buy_in - mybet + minimum_raise + 200
         elif my_cards_rank in small_pairs:
-            return 100
+            return current_buy_in - mybet + minimum_raise + 100
         else:
             return 0
         # if card1["rank"] == card2["rank"] and len(game_state["community_cards"]) == 0:
